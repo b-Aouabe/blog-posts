@@ -1,0 +1,14 @@
+body {
+    max-width: 600px;
+    margin: auto;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: rgb(241, 53, 179)
+}
+
+p {
+    line-height: 1.6;
+    text-align: justify;
+}
