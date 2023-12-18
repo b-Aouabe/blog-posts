@@ -2,6 +2,7 @@
 
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,8 @@ Route::post('login', [SessionsController::class, 'store']);
 Route::post('logout', [SessionsController::class, 'destroy'])->name('logout')->middleware('auth');
 
 Route::get('/posts/admin/create', [PostController::class, 'create'])->middleware('admin');
+
+Route::post('posts/{post}/comments', [CommentController::class, 'store'])->middleware('auth');
 
 //we replace the code below with a filter by category and pass the slug in the url:
 

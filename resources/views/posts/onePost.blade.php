@@ -78,10 +78,12 @@
                     </div>
                 </div>
             </article>
-            <section class="max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10 space-y-6">
-                <x-post-comment/>
-                <x-post-comment/>
-                <x-post-comment/>
+            <section class="flex flex-col max-w-4xl mx-auto lg:grid lg:grid-cols-12 gap-x-10 space-y-6">
+                @include('posts._add-comment-section')
+
+                @foreach($comments as $comment)
+                    <x-post-comment :comment="$comment" />
+                @endforeach
             </section>
         </main>
 
