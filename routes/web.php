@@ -31,7 +31,8 @@ Route::get('login', [SessionsController::class, "create"])->name('login')->middl
 Route::post('login', [SessionsController::class, 'store']);
 Route::post('logout', [SessionsController::class, 'destroy'])->name('logout')->middleware('auth');
 
-Route::get('/posts/admin/create', [PostController::class, 'create'])->middleware('admin');
+Route::get('/posts/admin/create', [PostController::class, 'create'])->name('createPost')->middleware('admin');
+Route::post('/posts/admin', [PostController::class, 'store'])->middleware('admin');
 
 Route::post('posts/{post}/comments', [CommentController::class, 'store'])->middleware('auth');
 

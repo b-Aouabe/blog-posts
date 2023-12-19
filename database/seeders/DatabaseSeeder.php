@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Comment;
 use \App\Models\User;
 use App\Models\category;
 use App\Models\Post;
@@ -24,7 +25,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => "in"
         // ]);
 
-        Post::factory(10)->create();
+        Post::factory(5)->create();
+        Comment::factory(3)->create(['post_id' => 1]);
+        Comment::factory(2)->create(['post_id' => 2]);
+        Comment::factory(4)->create(['post_id' => 3]);
+        Comment::factory(3)->create(['post_id' => 4]);
+        Comment::factory(5)->create();
 
         // //craeting one user
         // $users = User::factory(2)->create();

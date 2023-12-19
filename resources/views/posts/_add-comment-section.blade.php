@@ -12,11 +12,9 @@
                       name="body"
                       cols="20" rows="3" placeholder="Leave a comment!"
                       required ></textarea>
-            <div class="flex justify-end mr-3 border-t border-gray-400 pt-3">
-                <x-submit-button>
-                    post
-                </x-submit-button>
-            </div>
+            <x-submit-button>
+                post
+            </x-submit-button>
         </form>
     @else
         <p class=" ">

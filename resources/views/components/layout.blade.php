@@ -24,11 +24,17 @@
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="mx-4 text-xs font-bold uppercase">Login</a>
                 @else
-                    <span class="text-xs font-bold uppercase">Welcome {{ auth()->user()->name }}! </span>
+                    <x-dropdown>
+                        <x-slot name="trigger">
+                            <span class="text-xs font-bold uppercase cursor-pointer">Welcome {{ auth()->user()->name }}! </span>
+                        </x-slot>
+
+                        <x-dropdown-item href="/posts/admin/create" :active="request()->routeIs('createPost')">New Post</x-dropdown-item>
+                        <x-dropdown-item href="/posts/admin/dashboard">Dashboard</x-dropdown-item>
+                    </x-dropdown>
                     <form action="{{ route('logout') }}" method="post" class="text-xs">
                         @csrf
                         <button type="submit" class="text-blue-400 hover:text-blue-700"> Log out </button>
-
                     </form>
                 @endguest
 

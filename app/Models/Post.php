@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
     use HasFactory;
 
-    // protected $guarded = [];
+     protected $guarded = [];
     // protected $fillable = ['title', 'excerpt', 'body'];
 
     protected $with = ['category', 'author'];
@@ -50,6 +51,12 @@ class Post extends Model
         );
 
 
+    }
+
+    //mutators;
+    public function setTitleAttribute ($title) {
+        $this->attributes['title'] = $title;
+        $this->attributes['slug'] = str::slug($title);
     }
 
     //this method sets the default passed parameter to the slug instead pf the id

@@ -24,6 +24,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'excerpt' => "<p>" . implode("</p><p>", fake()->sentences(2)) . "</p>",
+            'thumbnail' => 'thumbnails/illustration-1.png',
             'body' => "<p>" . implode("</p><p>", fake()->paragraphs(3)) . "</p>",
             'published_at' => fake()->date()
         ];
